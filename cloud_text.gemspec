@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Cleans the given text for the given language."
   spec.description   = "This gem removes punctuation and digits(optional), filters stopwords for the chosen language ('tr', 'en' or 'fr'), does stemming on the words and outputs an array of words with their frequencies."
-  spec.homepage      = "https://www.twentify.com"
+  spec.homepage      = "https://github.com/twentify/cloud_text"
   spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
