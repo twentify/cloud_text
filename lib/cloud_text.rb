@@ -47,8 +47,6 @@ module CloudText
 
     # Counting the words, generate array for each element like => [word, frequency]
     @result = @input.each_with_object(Hash.new(0)) { |token, hash| hash[token] += 1 }.sort_by {|k,v| v}.reverse
-
-    puts @result
   end
 
   private
