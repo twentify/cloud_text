@@ -28,9 +28,9 @@ require 'cloud_text'
 # language => "en"
 # stemming => false
 
-options = { remove_digits: false, language: "en", stemming: true }
-cleaner = CloudText.clean_text("Your text to be cleaned, will come here1!1", options)
-# => [["come", 1], ["will", 1], ["clean", 1], ["text", 1]]
+options = { remove_digits: true, language: "en", stemming: true }
+cleaner = CloudText.clean_text("Your text to be cleaned, will come come come here1!1", options)
+# => [["come", 3], ["will", 1], ["clean", 1], ["text", 1]]
 ```
 
 ## Contributing
