@@ -64,7 +64,7 @@ module CloudText
   
   # Counting the words, generate array for each element like => [word, frequency]
   def self.count_words(input)
-    input.each_with_object(Hash.new(0)) { |token, hash| hash[token] += 1 }.sort_by {|k,v| v}.reverse
+    input.each_with_object(Hash.new(0)) { |token, hash| hash[token] += 1 }.sort_by(&:last).reverse
   end
 
   def self.tr_stopwords
