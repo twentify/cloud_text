@@ -35,12 +35,12 @@ module CloudText
     regex = remove_digits ? /[^A-Za-z0-9^şŞıİçÇöÖüÜĞğ\s]|_|\d/ : /[^A-Za-z0-9^şŞıİçÇöÖüÜĞğ\s]|_/
     input.gsub(regex, ' ')
   end
-  
+
   # Reduce multiple whitespaces into single whitespace
   def self.reduce_whitespaces(input)
     input.gsub(/\s+/, ' ')
   end
-  
+
   def self.lowercase_words(input, language)
     UnicodeUtils.downcase(input, language.to_sym)
   end
@@ -49,7 +49,7 @@ module CloudText
   def self.filter_stopwords(input, language, custom_stopwords = nil)
     stopword_filter = language == "tr" ? Stopwords::Filter.new(tr_stopwords) : stopword_filter = Stopwords::Snowball::Filter.new(language)
 
-    # Here we intentionally do not downcase custom_stopwords 
+    # Here we intentionally do not downcase custom_stopwords
     # since we want to filter only capitalized version of a word
     stopword_filter.stopwords << custom_stopwords if custom_stopwords
     stopword_filter.filter(input.split)
@@ -61,7 +61,7 @@ module CloudText
       stemmer.stem(word)
     end
   end
-  
+
   # Counting the words, generate array for each element like => [word, frequency]
   def self.count_words(input)
     input.each_with_object(Hash.new(0)) { |token, hash| hash[token] += 1 }.sort_by(&:last).reverse
